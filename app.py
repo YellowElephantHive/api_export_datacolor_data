@@ -6,6 +6,7 @@ from flask import Flask
 from flask_restful import Resource, Api
 import sqlite3
 
+# TODO: set environment path
 cwd = os.getcwd()
 con = sqlite3.connect(database=)
 
