@@ -7,7 +7,9 @@ from flask_restful import Resource, Api
 import sqlite3
 
 # TODO: set environment path
+
 cwd = os.getcwd()
+DatabasePath = os.path.join(cwd)
 con = sqlite3.connect(database=)
 
 
@@ -22,11 +24,12 @@ class Working(Resource):
 
 api.add_resource(Working, '/')
 
-@api.route('/api/get/data_color')
+
 class DataColor(Resource):
     def get(self):
         pass
-        
+
+api.add_resource(DataColor, '/api/get/data_color')
 
 if __name__ == '__main__':
     api.run()
