@@ -4,7 +4,7 @@ import configparser
 
 prj_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), os.pardir)
 sys.path.append(prj_root)
-setting_path = os.path.join(prj_root, 'setting.cfg')
+config_path = os.path.join(prj_root, 'config.cfg')
 
 
 class _ConfigManager():
@@ -23,4 +23,4 @@ class _ConfigManager():
         return self.config[item]
 
 
-cm = _ConfigManager(setting_path)
+cm = _ConfigManager(config_path)

@@ -6,11 +6,13 @@ from flask import Flask
 from flask_restful import Resource, Api
 import sqlite3
 
+from utils.config import cm # config manager
+
 # TODO: set environment path
 
 cwd = os.getcwd()
 DatabasePath = os.path.join(cwd)
-con = sqlite3.connect(database=)
+con = sqlite3.connect(database=cm['data_source']['DATABASE_NAME'])
 
 
 app = Flask(__name__)
