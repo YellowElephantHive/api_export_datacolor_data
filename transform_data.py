@@ -42,6 +42,7 @@ for i in range(len(SpiteStringWithComma)):
     ListWithoutNone = list(filter(None, MergeFragmentList))
     MergeSolubilityList.append(ListWithoutNone)
 
+# TODO It should remove abnormal solubility from DataFrameResetIndex in below step
 CleanOutput = []
 LogAbnormalData = []
 for i in MergeSolubilityList:
@@ -51,10 +52,8 @@ for i in MergeSolubilityList:
     else:
         CleanOutput.append(i)
 
-'''
-df_modify['abort'] = 0
-df_modify['revised'] = 0
-'''
+DataFrameResetIndex['abort'] = 0
+DataFrameResetIndex['revised'] = 0
 
 TrainingData = pd.read_excel('/Users/laiyuchun/Desktop/hong_make_all_revised.xlsx', encoding='big5')
 
@@ -75,13 +74,30 @@ for i in CleanOutput:
         
 
 # 單色光: light 布號: Device
+
 DfSolubility = pd.DataFrame(ComplementaryValue, columns=NewCols)
+# TODO After LogAbnormalData which is in line (47, 3), you should form a dataframe to record value
+'''
+Your code is here
+'''
 LightDeviceGroup = TrainingData.groupby(['單色光', '布號']).groups
 DeviceToLight = dict((v, k) for k, v in LightDeviceGroup)
 DataFrameResetIndex['布號'].map(DeviceToLight)
 DataFrameResetIndex['單色光'] = DataFrameResetIndex['布號'].map(DeviceToLight)
 DataFrameResetIndex.to_excel('/Users/laiyuchun/Desktop/df_modify_2.xlsx')
 
+# TODO This step should join DataFrameRestIndex and DfSolubility
+'''
+Your code is here
+'''
+# TODO This step is to adjust the order and to be the same as the TrainData
+'''
+Your code is here
+'''
+# TODO Commit all data into dye_datacolor.db
+'''
+Your code is here
+'''
     
     
     
